@@ -8,7 +8,7 @@ function addProductToCart(product) {
   let cart = localStorage.getItem("so-cart")
     ? JSON.parse(localStorage.getItem("so-cart"))
     : [];
-  
+
   // Ensure cart is an array (handle edge cases where so-cart might be corrupted)
   if (!Array.isArray(cart)) {
     cart = [];
