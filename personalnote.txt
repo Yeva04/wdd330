@@ -1,0 +1,355 @@
+**TEMPORARY DOC 
+****When all above is done follow this course outcomes and provide effiecient rating and response like a human being would, maintaining realness.
+Section 1
+WDD 330 Personal Development 
+This document will be used in your final course assessment.
+
+Name: Ojobor Favour
+Course Outcomes
+The following are the course outcomes of WDD 330:
+
+1.	Become more efficient at applying your innate curiosity and creativity.
+2.	Become more dexterous at exploring your environment.
+3.	Become a person who enjoys helping and learning from others.
+4.	Use a divide and conquer approach to design solutions for programming problems.
+5.	Finding and troubleshooting bugs you and others will have in the code you write.
+6.	Developing and debugging HTML, CSS, and JavaScript programs that use medium complexity web technologies.
+
+To complete this course, you need to demonstrate your skill in these areas. Outcomes #1-5 demonstrate your personal development and are most easily shown through self-assessment and sharing experiences. Outcome #6 demonstrates your programming skill and is shown through code and experience in projects.
+Personal Development Outcomes 
+For each of the personal development outcomes you need to rate your development according to the following scale:
+
+Rating	Title	Description
+0	Unsatisfactory	You have not made progress in this area.
+1	Developing	You made some progress in this area but fell short of expectations.
+2	Proficient	You are progressing nicely in this area and meet expectations.
+3	Mastery	You have made significant progress in your development in this area and have gone above and beyond what most students would do.
+
+For each course outcome, you include your rating of your development and list examples of times that you demonstrated this principle.
+ 
+The following is an example of what is expected:
+Outcome	Rating (0-3) 	Week in
+the course	Description of Example
+Become a person who enjoys helping and learning from others.	3	Week 01	I was the first person on my team to figure out how to use all the technology we would need for the project. I took the time to meet one-on-one with two of my teammates to help them get everything set up.
+		Week 04	At the end of our first project, one of my teammates was really having a hard time figuring out how he could contribute to our project. My natural instinct in this case would have been to get the problem done on my own, but instead, I worked together with my teammate to get him started and then I followed up with him afterward to make sure he was able to get his task done.
+
+This definitely took more of my time, but I was really glad to see his spirits lifted as he made progress.
+			
+
+In the following table:
+1.	Add your self-assessment rating for each outcome.
+2.	List several examples of places you personally demonstrated your skill in each outcome.
+Feel free to add more rows to this table if needed.
+Outcome	Rating (0-3)	Week #	Description of Example
+Become more efficient at applying your innate curiosity and creativity.			
+			
+			
+Become more dexterous at exploring your environment.			
+			
+			
+Become a person who enjoys helping and learning from others.			
+			
+			
+Use a divide and conquer approach to design solutions for programming problems.			
+			
+			
+Finding and troubleshooting bugs you and others will have in the code you write.			
+			
+Section 2:
+WDD 330 Personal Project
+This document serves as your final course assessment. 
+Introduction
+Name: Ojobor Favour
+
+Video Link: [Insert your video link here]
+Working Application Link: [Insert your link here]
+GitHub Source URL: [Insert your URL here]
+Trello Board URL: [Insert your URL here]
+
+Course Outcomes
+The following are the course outcomes of WDD 330:
+
+1.	Become more efficient at applying your innate curiosity and creativity.
+2.	Become more dexterous at exploring your environment.
+3.	Become a person who enjoys helping and learning from others.
+4.	Use a divide and conquer approach to design solutions for programming problems.
+5.	Finding and troubleshooting bugs you and others will have in the code you write.
+6.	Developing and debugging HTML, CSS, and JavaScript programs that use medium complexity web technologies.
+
+To complete this course, you need to demonstrate your skill in these areas. Outcomes #1-5 demonstrate your personal development and are most easily shown through self-assessment and sharing experiences. Outcome #6 demonstrates your programming skill and is shown through code and experience in projects.
+ 
+Skill Development Outcome
+Developing and debugging HTML, CSS, and JavaScript programs that use medium complexity web technologies.
+
+This outcome is demonstrated by your skill in the following learning objectives:
+
+Objective	%	Description
+JavaScript	25%	Robust programming logic is demonstrated.
+
+For example, validating the screen data, looping through an array of JSON data to display to the screen, creating and using events, changing element styles with JS, changing element classes to use different CSS rules.
+Third-party APIs	15%	APIs are used effectively, including APIs that provide rich JSON data.
+JSON	15%	Demonstrate skill processing JSON data to dynamically update the website.
+CSS	15%	Appropriate use of Transforms and Transitions. For example: Add round the edges to DIV, add shadows. enlarge an input field on focus and shrink it on blur, Add borders. CSS should subtly add style to a page.
+Events	15%	Use events to enhance the user experience. For example, increase the size of the input field on focus or add a shadow. React to a button click. Initialized the page with data once the onload event triggers.
+Local Storage	5%	Local storage is used effectively.
+
+These learning objectives are rated on the following scale:
+
+Rating	Description
+Unsatisfactory	Very little if any work was shown in this area.
+Developing	The learning objective was shown in very basic ways.
+Proficient	Effective use of the learning objective was shown in multiple places.
+Mastery	Extensive use of the learning objective was shown in non-trivial ways in many places in the code.
+
+
+For each learning objective, discuss how the topic was used in your application. List several examples of places where the topics are demonstrated.
+
+The following is an example of what is expected:
+
+Learning Objective	Description	Where can this be seen in your application?
+CSS	I spent a lot of time choosing colors that would complement each other.
+I used CSS to make the input field bigger when it received the focus and to shrink it when it lost focus.	This can be seen on the home screen for each input field.
+	Images are enlarged on hover.	The recipe detail pages have this effect.
+	The search results have alternating colors for the rows for readability.	See the home page after a search is successfully run.
+
+In the following table:
+1.	Describe how the topics are used.
+Have someone test your links to make sure they are accessible by the grader. These links will be to your final personal project.
+Feel free to add more rows to this table if needed.
+Learning Objective	Description	Where can this be seen in your final personal project application?
+JavaScript		
+		
+		
+Third-party APIs		
+		
+		
+JSON		
+		
+		
+CSS		
+		
+		
+Events		
+		
+		
+Local Storage		
+		
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***NATIVE BROWSER API****
+
+A) Storage API (session)
+The sessionStorage API is great for temporary data like storing form progress during a single user session, keeping track of which tab is active, and holding flags just while the tab is open. It does not require a database nor the use of cookies.
+It is only available during an active session and is cleared when the tab is closed, thus making it a bit more secure than localStorage given that localStorage data persists even after the browser is closed.
+Data in sessionStorage is not completely secure and should not be used to store sensitive information.
+
+1. To set a session storage item, use this general form where key is the identifier and value is the data you want to store:
+sessionStorage.setItem('key', 'value');
+2. To retrieve a session storage item, use this general form:
+sessionStorage.getItem('key');
+3. To remove a session storage item, use:
+sessionStorage.removeItem('key');
+4. To clear all session storage items, use:
+sessionStorage.clear();
+5. To check if a session storage item exists, use this general form:
+if (sessionStorage.getItem('key') !== null) { 
+  // item exists
+}
+
+
+B) Validation API
+The Validation API is a built-in browser API that allows you to respond to the validation of user input in HTML forms. It provides a way to check if the attributes set in the HTML input are met. Such things such as being required, having a specific format, or being within a certain range, for example using min and max.
+To use the Validation API, you can use the checkValidity() method on an input element. This method returns a boolean value indicating whether the input is valid or not. If the input is invalid, you can use the setCustomValidity() method to set a custom error message.
+To check if an input is valid, use this general form:
+if (inputElement.checkValidity()) {
+  // input is valid
+} else {
+  // input is invalid
+  inputElement.setCustomValidity('Custom error message');
+}
+The variable, inputElement, refers to the referenced input element you want to validate.
+
+
+C) Geolocation API
+The Geolocation API is a built-in browser API that allows you to access the user's geographical location. It provides a way to get the user's current position in latitude and longitude, watch for changes in position, and handle errors that may occur while trying to access the location.
+To use the Geolocation API, you can use the navigator.geolocation object. This object provides methods to get the user's current position and watch for changes in position.
+To get the user's current position, use this general form:
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+The variable, successCallback, is a function that is called when the position is successfully retrieved. The variable, errorCallback, is a function that is called when there is an error retrieving the position.
+To watch for changes in position, use this general form:
+navigator.geolocation.watchPosition(successCallback, errorCallback);
+The following example uses getCurrentPosition() method to get your position in latitude and longitude and determine a geographic region of the world.
+
+See examplecode for location tracking below:
+const button = document.querySelector("#location-button");
+const location = document.querySelector(".location");
+        
+button.addEventListener("click", function () {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        // output
+        location.innerHTML = `Latitude: ${latitude} 🧭 Longitude: ${longitude}`;
+        location.innerHTML += `Region: ${getRegion(latitude, longitude)}`;
+      },
+      function (error) {
+        location.textContent = `Error: ${error.message}`;
+      }
+    );  
+    } else {
+      location.textContent = "Geolocation is not supported by this browser.";
+    }
+});
+
+function getRegion(lat, lon) {
+  if (lon > 180) lon -= 360; //normalize to -180..180
+
+  switch (true) {
+    // North America (excl. Mexico/Central America)
+    case lat >= 24 && lat <= 83 && lon >= -172 && lon <= -52:
+      return "North America" ;
+    // Mexico and Central America
+    case lat >= 7 && lat < 24 && lon >= -118 && lon <= -77:
+      return "Mexico and Central America";
+    // South America
+    case lat >= -56 && lat <= 13 && lon >= -82 && lon <= -34:
+      return "South America";
+    // Europe
+    case lat>= 35 && lat <= 71 && lon >= -25 && lon <= 45:
+      return "Europe";
+    // Africa
+    case lat >= -35 && lat <= 37 && lon >= -17 && lon <= 52:
+      return "Africa";
+    // Asia
+    case lat >= 5 && lat <= 80 && lon >= 45 && lon <= 180:
+      return "Asia";
+    // Oceania
+    case lat >= -50 && lat <= 0 && lon >= 110 && lon <= 180:
+      return "Oceania";
+    default:
+      return "Not mapped";
+  }
+}
+
+****WINDOW INTERFACE****
+
+A) The Window interface defines the properties and methods available to the global object like the .location, .localStorage, and alert(). It is the top-level object in the JavaScript hierarchy, the parent of all other objects in the browser.
+It provides access to the browser's features and functionality including methods for manipulating the browser window and access to window properties. Each tab in the browser is represented its own window object. However, some properties and methods apply to the containing browser window.
+For example, the window.innerWidth and window.innerHeight properties return the width and height of the browser window's viewport.
+
+For example, the window.innerWidth and window.innerHeight properties return the width and height of the browser window's viewport.
+Enter these two lines of code in your browser's DevTools console panel.
+
+window.innerWidth
+window.innerHeight
+What values are returned to the console? How might these values be useful in responsive design?
+What happens when you enter
+window.open("https://byupathway.edu")
+in the console?
+
+***Activity Instructions
+A commonly used example of the Window interface is detecting when the user resizes the browser window. This is useful for responsive behavior or adjusting elements dynamically. In this activity, you will look at an example and modify that example to use additional features:
+
+Review CodePen Example
+Open this CodePen Responsive Navigation
+Review the interaction when you resize the displayed page manually.
+This example removes the responsive class when the window is manually resized by the user.
+Look for the window.addEventListener('resize') function in the JavaScript panel.
+
+Display Window Properties
+Fork the CodePen from the previous step.
+Using window.innerWidth and window.innerHeight, display a message in the <aside> element provided that displays the current innerWidth and innerHeight.
+
+***SET TIMEOUT/SET INTERVAL***
+A) The setTimeout() and setInterval() methods are part of the Window object. They are used to schedule code execution at a later time. The setTimeout() method calls a function or evaluates an expression after a specified number of milliseconds.
+
+**TEMPLATE ELEMENT**
+A) Sometimes you will want to build content but not render that content until later. For example, you may want to build a list of items but not render them until the user clicks a button. The HTML <template> element allows you to do just that.
+
+Prepare
+The HTML <template> element is not rendered by the browser until evoked by script. The <template> element is useful for repeated HTML markup containing records or other data that is used repeatedly.
+
+Here is an example HTML template element:
+
+<template id="product-card">
+  <section class="card">
+    <h2></h2>
+    <p></p>
+    <p></p>
+    <img class="tn" src="" alt="" loading="lazy" width="100" height="200">
+  </section>
+</template>
+In the example above, the template element is used to create a product card. The template contains a section element with a class of "card" and includes an h2 element for the product name, two p elements for the product description and price, etc., and an img element for the product image.
+The template element is not rendered until it is cloned and inserted into the DOM.
+
+Here is an example of how to clone and insert the template into the DOM:
+
+const template = document.getElementById("product-card");
+const productList = document.getElementById("product-list");
+    
+products.forEach((product) => {
+  const clone = template.content.cloneNode(true);
+  const [title, desc, price, img] = clone.querySelectorAll("h2, p, p, img");
+    
+  title.textContent = product.name;
+  desc.textContent = product.description;
+  price.textContent = product.price;
+  img.src = product.image;
+  img.alt = product.name;
+    
+  productList.appendChild(clone);
+});
+In the example above, the template is cloned and the content is populated with data from the products array. The cloned template is then appended to a product-list element. Note that the use of the .cloneNode() method and the selection of the elements of the template as const variables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

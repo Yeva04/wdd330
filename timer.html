@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Outside | Countdown Timer</title>
+    <link rel="stylesheet" href="/timer.css" />
+  </head>
+  <body>
+    <header class="divider">
+      <div class="logo">
+        <img src="src/images/banner.jpg" alt="tent image for logo" />
+        <a href="/index.html">Sleep<span class="highlight">Outside</span></a>
+      </div>
+    </header>
+    <main>
+      <section class="countdown-container">
+        <h1 id="countdown">10</h1>
+        <div class="controls">
+          <input
+            type="number"
+            id="timeInput"
+            min="1"
+            placeholder="Enter seconds"
+          />
+          <button id="startButton">Start</button>
+          <button id="pauseResumeButton" disabled>Pause</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      &copy;2025 ⛺ SleepOutside ⛺ WDD 330 ⛺ BYU-Idaho for BYU-Pathway
+      Worldwide Online
+    </footer>
+    <script type="module" src="/timer.js"></script>
+  </body>
+</html>
