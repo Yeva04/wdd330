@@ -19,6 +19,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Copy product details page to root
+        run: cp dist/product_pages/index.html dist/index.html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
