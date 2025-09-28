@@ -1,28 +1,42 @@
-import "../css/style.css"; // Add CSS import
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  document.getElementById("cart-empty").style.display = cartItems.length === 0 ? "block" : "none";
+  const cart = getLocalStorage("so-cart") || [];
+  console.log("Cart data:", cart);
+  const cartItems = document.querySelector(".cart-items");
+  const cartEmpty = document.getElementById("cart-empty");
+  if (!cartItems) {
+    console.error("Cart items container (.cart-items) not found!");
+    return;
+  }
+  if (Array.isArray(cart) && cart.length > 0) {
+    cartEmpty.style.display = "none";
+    cartItems.innerHTML = cart.map((item, index) => `
+      <li class="cart-card divider">
+        <a href="#" class="cart-card__image">
+          <img src="${item.Image ? item.Image.replace('../images/tents/', '/images/tents/') : '/images/noun_Tent_2517.svg'}" alt="${item.Name || 'Cart Item'}">
+        </a>
+        <a href="#">
+          <h2 class="card__name">${item.Name || 'Unnamed Product'}</h2>
+        </a>
+        <p class="cart-card__color">${item.Colors?.[0]?.ColorName || 'N/A'}</p>
+        <p class="cart-card__quantity">qty: 1</p>
+        <p class="cart-card__price">$${item.FinalPrice || item.ListPrice || 0.00}</p>
+        <button class="remove-from-cart" data-index="${index}">Remove</button>
+      </li>
+    `).join("");
+    document.querySelectorAll('.remove-from-cart').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const index = parseInt(e.target.dataset.index);
+        cart.splice(index, 1);
+        setLocalStorage('so-cart', cart);
+        renderCartContents();
+      });
+    });
+  } else {
+    cartEmpty.style.display = "block";
+    cartItems.innerHTML = "";
+  }
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-      class="cart-card__image"
-    />
-    <div class="cart-card__content">
-      <h2 class="card__name">${item.Name}</h2>
-      <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-      <p class="cart-card__quantity">qty: 1</p>
-      <p class="cart-card__price">$${item.FinalPrice}</p>
-    </div>
-  </li>`;
-  return newItem;
-}
-
-renderCartContents();
+document.addEventListener("DOMContentLoaded", renderCartContents);
