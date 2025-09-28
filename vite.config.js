@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "src/",
   publicDir: "public",
+  base: '/wdd330/', // Add this line
   build: {
     outDir: "../dist",
     rollupOptions: {
