@@ -25,10 +25,17 @@ export function setClick(selector, callback) {
 }
 
 // get URL parameter
+
 export function getParam(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  return urlParams.get(param);
+  const fullUrl = window.location.href;
+  const basePath = '/wdd330/';
+  const queryStart = fullUrl.indexOf('?');
+  if (queryStart !== -1) {
+    const queryString = fullUrl.substring(queryStart);
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get(param) || null;
+  }
+  return null;
 }
 
 // render a list of items using a template function
