@@ -58,10 +58,11 @@ export default class ProductDetails {
     }
   }
 
-  renderProductDetails() {
+renderProductDetails() {
   document.getElementById('product-brand').textContent = this.product.Brand.Name || 'Unknown Brand';
   document.getElementById('product-name').textContent = this.product.NameWithoutBrand || this.product.Name || 'Unnamed Product';
-  document.getElementById('product-image').src = `/wdd330/docs/images/${this.product.Image.split('/').pop()}` || '/wdd330/docs/images/noun_Tent_2517.svg';
+  const imagePath = this.product.Image ? `/wdd330/docs/images/tents/${this.product.Image.split('/').pop()}` : '/wdd330/docs/images/noun_Tent_2517.svg';
+  document.getElementById('product-image').src = imagePath;
   document.getElementById('product-image').alt = this.product.Name || 'Product Image';
   document.getElementById('product-price').textContent = `$${this.product.ListPrice || this.product.FinalPrice || 0.00}`;
   document.getElementById('product-color').textContent = this.product.Colors?.[0]?.ColorName || 'N/A';
