@@ -1,4 +1,4 @@
-import{g as l,s as d}from"./utils-Dn-3GGK0.js";function o(){const a=l("so-cart")||[];console.log("Cart data:",a);const r=document.querySelector(".cart-items"),n=document.getElementById("cart-empty");if(!r){console.error("Cart items container (.cart-items) not found!");return}Array.isArray(a)&&a.length>0?(n.style.display="none",r.innerHTML=a.map((e,c)=>{var t,s;return`
+import{g as l,s as d}from"./utils-B1gkA_s2.js";function o(){const a=l("so-cart")||[];console.log("Cart data:",a);const r=document.querySelector(".cart-items"),n=document.getElementById("cart-empty");if(!r){console.error("Cart items container (.cart-items) not found!");return}Array.isArray(a)&&a.length>0?(n.style.display="none",r.innerHTML=a.map((e,c)=>{var t,s;return`
       <li class="cart-card divider">
         <a href="#" class="cart-card__image">
           <img src="${e.Image?e.Image.replace("../images/tents/","/images/tents/"):"/images/noun_Tent_2517.svg"}" alt="${e.Name||"Cart Item"}">

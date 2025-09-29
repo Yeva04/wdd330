@@ -1,4 +1,4 @@
-import{r as n}from"./utils-Dn-3GGK0.js";import{P as i}from"./ProductData-328078zX.js";function l(e){var s;if(console.log("Rendering product, image path:",e.Image),!e||!e.Id)return console.error("Invalid product data:",e),'<li class="product-card error">Invalid Product</li>';const t="/wdd330/",a=`${t}images/tents/${e.Image.split("/").pop()}?v=${new Date().getTime()}`,r=`${t}images/noun_Tent_2517.svg`;return`<li class="product-card">
+import{r as n}from"./utils-B1gkA_s2.js";import{P as i}from"./ProductData-328078zX.js";function l(e){var s;if(console.log("Rendering product, image path:",e.Image),!e||!e.Id)return console.error("Invalid product data:",e),'<li class="product-card error">Invalid Product</li>';const t="/wdd330/",a=`${t}images/tents/${e.Image.split("/").pop()}?v=${new Date().getTime()}`,r=`${t}images/noun_Tent_2517.svg`;return`<li class="product-card">
   <a href="/product_pages/index.html?product=${e.Id}">
     <img src="${a}" alt="Image of ${e.Name||e.NameWithoutBrand||"Unnamed Product"}" 
          onload="console.log('Image loaded:', '${a}');" 
