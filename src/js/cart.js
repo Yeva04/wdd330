@@ -11,20 +11,26 @@ function renderCartContents() {
   }
   if (Array.isArray(cart) && cart.length > 0) {
     cartEmpty.style.display = "none";
-    cartItems.innerHTML = cart.map((item, index) => `
-      <li class="cart-card divider">
-        <a href="#" class="cart-card__image">
-          <img src="${item.Image ? item.Image.replace('../images/tents/', '/images/tents/') : '/images/noun_Tent_2517.svg'}" alt="${item.Name || 'Cart Item'}">
-        </a>
-        <a href="#">
-          <h2 class="card__name">${item.Name || 'Unnamed Product'}</h2>
-        </a>
-        <p class="cart-card__color">${item.Colors?.[0]?.ColorName || 'N/A'}</p>
-        <p class="cart-card__quantity">qty: 1</p>
-        <p class="cart-card__price">$${item.FinalPrice || item.ListPrice || 0.00}</p>
-        <button class="remove-from-cart" data-index="${index}">Remove</button>
-      </li>
-    `).join("");
+    cartItems.innerHTML = cart.map((item, index) => {
+      const basePath = "/wdd330/";
+      const imageUrl = item.Image
+        ? `${basePath}images/tents/${item.Image.split("/").pop()}`
+        : `${basePath}images/noun_Tent_2517.svg`;
+      return `
+        <li class="cart-card divider">
+          <a href="#" class="cart-card__image">
+            <img src="${imageUrl}" alt="${item.Name || 'Cart Item'}">
+          </a>
+          <a href="#">
+            <h2 class="card__name">${item.Name || 'Unnamed Product'}</h2>
+          </a>
+          <p class="cart-card__color">${item.Colors?.[0]?.ColorName || 'N/A'}</p>
+          <p class="cart-card__quantity">qty: 1</p>
+          <p class="cart-card__price">$${item.FinalPrice || item.ListPrice || 0.00}</p>
+          <button class="remove-from-cart" data-index="${index}">Remove</button>
+        </li>
+      `;
+    }).join("");
     document.querySelectorAll('.remove-from-cart').forEach(button => {
       button.addEventListener('click', (e) => {
         const index = parseInt(e.target.dataset.index);

@@ -1,10 +1,11 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
+import { resolve } from "path";
+import legacy from "@vitejs/plugin-legacy";
 
 export default defineConfig({
   root: "src/",
   publicDir: "public",
-  base: '/wdd330/', // Add this line
+  base: "/wdd330/",
   build: {
     outDir: "../dist",
     rollupOptions: {
@@ -16,4 +17,9 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    legacy({
+      targets: ["defaults", "not IE 11"],
+    }),
+  ],
 });
