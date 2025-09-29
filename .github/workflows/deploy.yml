@@ -27,7 +27,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x' # Use 20.x for the latest 20.x version, or '22.x' for 22.x
+          node-version: '20.x'
       - name: Install dependencies
         run: npm install
       - name: Build project
@@ -41,4 +41,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./distn
+          publish_dir: ./dist
