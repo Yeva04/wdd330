@@ -5,7 +5,7 @@ import legacy from "@vitejs/plugin-legacy";
 export default defineConfig({
   root: "src/",
   publicDir: "public",
-  base: "/wdd330/",
+  base: "/wdd330/", // Ensures all assets and scripts use this base path
   build: {
     outDir: "../dist",
     rollupOptions: {

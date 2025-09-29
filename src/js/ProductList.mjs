@@ -1,7 +1,5 @@
 import { renderListWithTemplate } from "./utils.mjs";
-import ProductDetails from "./ProductDetails.mjs";
-
-let productDetailsInstance = null;
+import ProductData from "./ProductData.mjs";
 
 function productCardTemplate(product) {
   console.log("Rendering product, image path:", product.Image);
@@ -10,10 +8,10 @@ function productCardTemplate(product) {
     return `<li class="product-card error">Invalid Product</li>`;
   }
   const basePath = "/wdd330/";
-  const imageUrl = `${basePath}images/tents/${product.Image.split("/").pop()}?v=${new Date().getTime()}`; // Cache busting
+  const imageUrl = `${basePath}images/tents/${product.Image.split("/").pop()}?v=${new Date().getTime()}`;
   const fallbackUrl = `${basePath}images/noun_Tent_2517.svg`;
-  return `<li class="product-card" data-id="${product.Id}">
-    <a href="#" class="product-link">
+  return `<li class="product-card">
+    <a href="/wdd330/product_pages/index.html?product=${product.Id}">
       <img src="${imageUrl}" alt="Image of ${product.Name || product.NameWithoutBrand || 'Unnamed Product'}" 
            onload="console.log('Image loaded:', '${imageUrl}');" 
            onerror="console.log('Image failed, using fallback:', '${fallbackUrl}'); this.src='${fallbackUrl}'; this.onerror=null;" />
@@ -30,43 +28,16 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
-    this.initProductDetails();
-  }
-
-  initProductDetails() {
-    const productId = new URLSearchParams(window.location.search).get("product");
-    if (productId) {
-      productDetailsInstance = new ProductDetails(productId, new ProductData("tents"));
-      productDetailsInstance.init().then(() => {
-        this.hideList(); // Hide list if details are shown
-      });
-    }
-  }
-
-  hideList() {
-    if (this.listElement) {
-      this.listElement.style.display = "none";
-      const detailSection = document.querySelector(".product-detail");
-      if (detailSection) detailSection.style.display = "block";
-    }
-  }
-
-  showList() {
-    if (this.listElement) {
-      this.listElement.style.display = "block";
-      const detailSection = document.querySelector(".product-detail");
-      if (detailSection) detailSection.style.display = "none";
-    }
   }
 
   async init() {
     try {
       const list = await this.dataSource.getData();
-      console.log("Raw data from tents.json:", list); // Debug raw data
+      console.log("Raw data from tents.json:", list);
       const filteredList = list.filter((product) =>
         ["880RR", "985RF", "985PR", "344YJ"].includes(product.Id)
       );
-      console.log("Filtered list length:", filteredList.length, "Products:", filteredList); // Debug filter
+      console.log("Filtered list length:", filteredList.length, "Products:", filteredList);
       this.renderList(filteredList);
       this.addEventListeners();
     } catch (error) {
@@ -80,25 +51,6 @@ export default class ProductList {
   }
 
   addEventListeners() {
-    const productLinks = this.listElement.querySelectorAll(".product-link");
-    productLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const productId = link.closest(".product-card").dataset.id;
-        window.location.search = `?product=${productId}`;
-        if (!productDetailsInstance || productDetailsInstance.productId !== productId) {
-          productDetailsInstance = new ProductDetails(productId, new ProductData("tents"));
-          productDetailsInstance.init().then(() => {
-            this.hideList();
-          });
-        } else {
-          productDetailsInstance.init().then(() => {
-            this.hideList();
-          });
-        }
-      });
-    });
-
     const addToCartButtons = this.listElement.querySelectorAll(".addToCart");
     addToCartButtons.forEach((button) => {
       button.addEventListener("click", () => {
