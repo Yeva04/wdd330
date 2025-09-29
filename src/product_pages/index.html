@@ -24,13 +24,15 @@
     </div>
   </header>
   <main class="divider">
-    <section class="product-detail">
+    <ul class="product-list"></ul> <!-- ProductList renders here -->
+    <section class="product-detail" style="display: none;">
       <h3 id="product-brand"></h3>
       <h2 class="divider" id="product-name"></h2>
-      <img id="product-image" src="" alt="" />
+      <img id="product-image" src="" alt="Product Image" />
       <p class="product-card__price" id="product-price"></p>
       <p class="product__color" id="product-color"></p>
       <div class="product-detail__description" id="product-description"></div>
+      <p id="product-discount"></p> <!-- Added for discount rendering -->
       <div class="product-detail__add">
         <button id="addToCart" data-id="">Add to Cart</button>
       </div>
