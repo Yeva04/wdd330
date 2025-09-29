@@ -9,7 +9,7 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `/src/json/${this.category}.json`; // Absolute path for Vite
+    this.path = `/wdd330/json/${this.category}.json`; // Absolute path for Vite
     this.fallbackData = [
       {
         Id: "880RR",

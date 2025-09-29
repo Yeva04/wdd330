@@ -59,15 +59,15 @@ export default class ProductDetails {
   }
 
   renderProductDetails() {
-    document.getElementById('product-brand').textContent = this.product.Brand.Name || 'Unknown Brand';
-    document.getElementById('product-name').textContent = this.product.NameWithoutBrand || this.product.Name || 'Unnamed Product';
-    document.getElementById('product-image').src = this.product.Image.replace('../images/tents/', '/images/tents/') || '/images/noun_Tent_2517.svg';
-    document.getElementById('product-image').alt = this.product.Name || 'Product Image';
-    document.getElementById('product-price').textContent = `$${this.product.ListPrice || this.product.FinalPrice || 0.00}`;
-    document.getElementById('product-color').textContent = this.product.Colors?.[0]?.ColorName || 'N/A';
-    document.getElementById('product-description').innerHTML = this.product.DescriptionHtmlSimple || 'No description available';
-    document.getElementById('addToCart').dataset.id = this.product.Id;
-  }
+  document.getElementById('product-brand').textContent = this.product.Brand.Name || 'Unknown Brand';
+  document.getElementById('product-name').textContent = this.product.NameWithoutBrand || this.product.Name || 'Unnamed Product';
+  document.getElementById('product-image').src = `/wdd330/docs/images/tents/${this.product.Image.split('/').pop()}` || '/wdd330/docs/images/noun_Tent_2517.svg';
+  document.getElementById('product-image').alt = this.product.Name || 'Product Image';
+  document.getElementById('product-price').textContent = `$${this.product.ListPrice || this.product.FinalPrice || 0.00}`;
+  document.getElementById('product-color').textContent = this.product.Colors?.[0]?.ColorName || 'N/A';
+  document.getElementById('product-description').innerHTML = this.product.DescriptionHtmlSimple || 'No description available';
+  document.getElementById('addToCart').dataset.id = this.product.Id;
+}
 
   applyDiscount() {
     const discount = new ProductDiscount(this.product);
