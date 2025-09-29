@@ -9,17 +9,17 @@ function productCardTemplate(product) {
   const basePath = '/wdd330/'; // Base path for GitHub Pages
   const imageUrl = `${basePath}images/tents/${product.Image.split('/').pop()}?v=${new Date().getTime()}`; // Extract filename and prepend base
   const fallbackUrl = `${basePath}images/noun_Tent_2517.svg`; // Adjusted fallback path
-  return `<li class="product-card">
-    <a href="/product_pages/?product=${product.Id}">
-      <img src="${imageUrl}" alt="Image of ${product.Name || product.NameWithoutBrand || 'Unnamed Product'}" 
-           onload="console.log('Image loaded:', '${imageUrl}');" 
-           onerror="console.log('Image failed, using fallback:', '${fallbackUrl}'); this.src='${fallbackUrl}'; this.onerror=null;" />
-      <h3 class="card__brand">${product.Brand?.Name || "Unknown Brand"}</h3>
-      <h2 class="card__name">${product.Name || product.NameWithoutBrand || 'Unnamed Product'}</h2>
-      <p class="product-card__price">$${product.ListPrice || product.FinalPrice || 0.00}</p>
-    </a>
-    <button class="addToCart" data-id="${product.Id}">Add to Cart</button>
-  </li>`;
+ return `<li class="product-card">
+  <a href="/product_pages/index.html?product=${product.Id}">
+    <img src="${imageUrl}" alt="Image of ${product.Name || product.NameWithoutBrand || 'Unnamed Product'}" 
+         onload="console.log('Image loaded:', '${imageUrl}');" 
+         onerror="console.log('Image failed, using fallback:', '${fallbackUrl}'); this.src='${fallbackUrl}'; this.onerror=null;" />
+    <h3 class="card__brand">${product.Brand?.Name || "Unknown Brand"}</h3>
+    <h2 class="card__name">${product.Name || product.NameWithoutBrand || 'Unnamed Product'}</h2>
+    <p class="product-card__price">$${product.ListPrice || product.FinalPrice || 0.00}</p>
+  </a>
+  <button class="addToCart" data-id="${product.Id}">Add to Cart</button>
+</li>`;
 }
 
 export default class ProductList {
