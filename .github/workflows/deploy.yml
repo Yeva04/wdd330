@@ -19,19 +19,10 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Check dist content
-        run: ls -la dist/ || dir dist/  # List files in dist
-      - name: Copy product details page to root
-        run: |
-          if [ -f dist/product_pages/index.html ]; then
-            cp dist/product_pages/index.html dist/index.html
-            echo "Copied product_pages/index.html to index.html"
-          else
-            echo "Error: dist/product_pages/index.html not found"
-            exit 1
-          fi
+      - name: Copy to docs
+        run: xcopy dist\* docs /s /e /h /c /y || cp -r dist/* docs/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: docs
           token: ${{ secrets.ACCESS_TOKEN }}
