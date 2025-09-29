@@ -1,4 +1,7 @@
 import { renderListWithTemplate } from "./utils.mjs";
+import ProductDetails from "./ProductDetails.mjs"; // Import ProductDetails
+
+let productDetailsInstance = null;
 
 function productCardTemplate(product) {
   console.log("Rendering product, image path:", product.Image);
@@ -10,7 +13,7 @@ function productCardTemplate(product) {
   const imageUrl = `${basePath}images/tents/${product.Image.split("/").pop()}?v=${new Date().getTime()}`; // Cache busting
   const fallbackUrl = `${basePath}images/noun_Tent_2517.svg`;
   return `<li class="product-card">
-    <a href="#" onclick="window.location.search='?product=${product.Id}'; return false;">
+    <a href="#" onclick="showProductDetails('${product.Id}'); return false;">
       <img src="${imageUrl}" alt="Image of ${product.Name || product.NameWithoutBrand || 'Unnamed Product'}" 
            onload="console.log('Image loaded:', '${imageUrl}');" 
            onerror="console.log('Image failed, using fallback:', '${fallbackUrl}'); this.src='${fallbackUrl}'; this.onerror=null;" />
@@ -21,6 +24,17 @@ function productCardTemplate(product) {
     <button class="addToCart" data-id="${product.Id}">Add to Cart</button>
   </li>`;
 }
+
+// Function to show product details
+window.showProductDetails = function (productId) {
+  if (!productDetailsInstance) {
+    productDetailsInstance = new ProductDetails(productId, new ProductData("tents"));
+  } else {
+    productDetailsInstance.productId = productId;
+  }
+  window.location.search = `?product=${productId}`; // Update URL
+  productDetailsInstance.init(); // Re-initialize with new product ID
+};
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {

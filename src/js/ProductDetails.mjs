@@ -3,61 +3,77 @@ import ProductData from "./ProductData.mjs";
 import ProductDiscount from "./ProductDiscount.mjs";
 
 const productId = getParam("product");
+console.log("Product ID from URL:", productId); // Debug log
+
 const dataSource = new ProductData("tents");
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
-    this.productId = productId;
+    this.productId = productId || "880RR"; // Default to 880RR if null
     this.product = {};
     this.dataSource = dataSource;
   }
 
   async init() {
     try {
+      console.log("Initializing with productId:", this.productId);
       this.product = await this.dataSource.findProductById(this.productId);
       if (!this.product) {
-        console.error('Product not found for ID:', this.productId);
-        document.querySelector('.product-detail').innerHTML = '<p>Product not found. Please check the URL (e.g., ?product=880RR).</p>';
+        console.error("Product not found for ID:", this.productId);
+        document.querySelector(".product-detail").innerHTML =
+          "<p>Product not found. Please use ?product=880RR in the URL.</p>";
         return;
       }
-      console.log('Product loaded:', this.product);
+      console.log("Product loaded:", this.product);
       this.renderProductDetails();
       this.addToCartButton();
       this.applyDiscount();
     } catch (error) {
-      console.error('Error initializing ProductDetails:', error);
-      document.querySelector('.product-detail').innerHTML = '<p>Error loading product. Please try again later.</p>';
+      console.error("Error initializing ProductDetails:", error);
+      document.querySelector(".product-detail").innerHTML =
+        "<p>Error loading product. Please try again later.</p>";
     }
   }
 
   addToCartButton() {
-    const addToCartButton = document.getElementById('addToCart');
+    const addToCartButton = document.getElementById("addToCart");
     if (addToCartButton) {
-      addToCartButton.addEventListener('click', () => {
-        let cart = localStorage.getItem('so-cart') ? JSON.parse(localStorage.getItem('so-cart')) : [];
+      addToCartButton.addEventListener("click", () => {
+        let cart = localStorage.getItem("so-cart")
+          ? JSON.parse(localStorage.getItem("so-cart"))
+          : [];
         if (!Array.isArray(cart)) cart = [];
         const cartItem = { ...this.product, Id: this.product.Id };
         cart.push(cartItem);
-        setLocalStorage('so-cart', cart);
-        console.log('Cart updated:', cart);
-        alert('Item added to cart!');
+        setLocalStorage("so-cart", cart);
+        console.log("Cart updated:", cart);
+        alert("Item added to cart!");
       });
     } else {
-      console.error('addToCart button not found in DOM');
+      console.error("addToCart button not found in DOM");
     }
   }
 
   renderProductDetails() {
-    const basePath = '/wdd330/';
-    document.getElementById('product-brand').textContent = this.product.Brand.Name || 'Unknown Brand';
-    document.getElementById('product-name').textContent = this.product.NameWithoutBrand || this.product.Name || 'Unnamed Product';
-    const imagePath = this.product.Image ? `${basePath}images/tents/${this.product.Image.split('/').pop()}` : `${basePath}images/noun_Tent_2517.svg`;
-    document.getElementById('product-image').src = imagePath;
-    document.getElementById('product-image').alt = this.product.Name || 'Product Image';
-    document.getElementById('product-price').textContent = `$${this.product.ListPrice || this.product.FinalPrice || 0.00}`;
-    document.getElementById('product-color').textContent = this.product.Colors?.[0]?.ColorName || 'N/A';
-    document.getElementById('product-description').innerHTML = this.product.DescriptionHtmlSimple || 'No description available';
-    document.getElementById('addToCart').dataset.id = this.product.Id;
+    const basePath = "/wdd330/";
+    document.getElementById("product-brand").textContent =
+      this.product.Brand.Name || "Unknown Brand";
+    document.getElementById("product-name").textContent =
+      this.product.NameWithoutBrand || this.product.Name || "Unnamed Product";
+    const imagePath = this.product.Image
+      ? `${basePath}images/tents/${this.product.Image.split("/").pop()}`
+      : `${basePath}images/noun_Tent_2517.svg`;
+    document.getElementById("product-image").src = imagePath;
+    document.getElementById("product-image").alt =
+      this.product.Name || "Product Image";
+    document.getElementById("product-price").textContent = `$${
+      this.product.ListPrice || this.product.FinalPrice || 0.0
+    }`;
+    document.getElementById("product-color").textContent =
+      this.product.Colors?.[0]?.ColorName || "N/A";
+    document.getElementById("product-description").innerHTML =
+      this.product.DescriptionHtmlSimple || "No description available";
+    document.getElementById("addToCart").dataset.id = this.product.Id;
   }
 
   applyDiscount() {
