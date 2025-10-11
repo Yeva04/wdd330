@@ -1,25 +1,20 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import legacy from "@vitejs/plugin-legacy";
 
 export default defineConfig({
-  root: "src/",
-  publicDir: "public",
-  base: "/wdd330/", // Ensures all assets and scripts use this base path
+  base: "/wdd330/", // matches your repo name
+  root: "src",      // tell Vite that your HTML files are inside src/
   build: {
-    outDir: "../dist",
+    outDir: "../dist", // output dist folder at project root
+    emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "src/index.html"),
-        cart: resolve(__dirname, "src/cart/index.html"),
-        checkout: resolve(__dirname, "src/checkout/index.html"),
-        product: resolve(__dirname, "src/product_pages/index.html"),
+        main: resolve(__dirname, "src/index.html"),           // home page
+        cart: resolve(__dirname, "src/checkout/index.html"),  // cart page
       },
     },
   },
-  plugins: [
-    legacy({
-      targets: ["defaults", "not IE 11"],
-    }),
-  ],
+  server: {
+    open: "/index.html", // localhost opens home page
+  },
 });

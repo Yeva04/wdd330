@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sleep Outside | Cart</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <script type="module" src="../js/cart.js"></script>
+  <link rel="icon" href="/public/favicon.ico" />
+  <link rel="stylesheet" href="../css/style.css"> <!-- Relative for local, /wdd330/ applied in production -->
+  <script type="module" src="../js/cart.js"></script> <!-- Relative for local -->
 </head>
 <body>
   <header class="divider">
     <div class="logo">
-      <img src="/images/noun_Tent_2517.svg" alt="tent image for logo">
-      <a href="../index.html">Sleep<span class="highlight">Outside</span></a>
+      <img src="/public/images/noun_Tent_2517.svg" alt="tent image for logo"> <!-- Absolute for consistency -->
+      <a href="/">Sleep<span class="highlight">Outside</span></a> <!-- Root-relative: / locally, /wdd330/ in production -->
     </div>
   </header>
   <main class="divider">

@@ -12,7 +12,7 @@ function renderCartContents() {
   if (Array.isArray(cart) && cart.length > 0) {
     cartEmpty.style.display = "none";
     cartItems.innerHTML = cart.map((item, index) => {
-      const basePath = "/wdd330/";
+      const basePath = "./";
       const imageUrl = item.Image
         ? `${basePath}images/tents/${item.Image.split("/").pop()}`
         : `${basePath}images/noun_Tent_2517.svg`;

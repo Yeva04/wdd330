@@ -9,7 +9,9 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `/wdd330/json/${this.category}.json`; // Absolute path for Vite
+    // ✅ Relative path so it works in Vite dev and build
+    this.path = `./json/${this.category}.json`;
+
     this.fallbackData = [
       {
         Id: "880RR",
@@ -19,7 +21,7 @@ export default class ProductData {
         ListPrice: 199.99,
         FinalPrice: 199.99,
         SuggestedRetailPrice: 300.0,
-        Image: "/wdd330/images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg",
+        Image: "./images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg",
         Colors: [{ ColorName: "Pale Pumpkin/Terracotta" }],
         DescriptionHtmlSimple: "Get out and enjoy nature with Marmot's Ajax tent, featuring a smart design with durable, waterproof construction and two doors for easy access."
       },
@@ -31,9 +33,9 @@ export default class ProductData {
         ListPrice: 199.99,
         FinalPrice: 199.99,
         SuggestedRetailPrice: 299.0,
-        Image: "/wdd330/images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg",
+        Image: "./images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg",
         Colors: [{ ColorName: "Golden Oak/Saffron Yellow" }],
-        DescriptionHtmlSimple: "<strong>Closeout</strong>. Enjoy a fun night under stars with your favorite people in The North Face's Talus four-person tent, featuring durable construction with a roomy interior, an advanced DAC Featherlite NSL pole system and an easy to pitch design."
+        DescriptionHtmlSimple: "<strong>Closeout</strong>. Enjoy a fun night under stars with your favorite people in The North Face's Talus four-person tent."
       },
       {
         Id: "985PR",
@@ -43,9 +45,9 @@ export default class ProductData {
         ListPrice: 349.99,
         FinalPrice: 349.99,
         SuggestedRetailPrice: 489.0,
-        Image: "/wdd330/images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg",
+        Image: "./images/tents/the-north-face-alpine-guide-tent-3-person-4-season-in-canary-yellow-high-rise-grey~p~985pr_01~320.jpg",
         Colors: [{ ColorName: "Canary Yellow/High Rise Grey" }],
-        DescriptionHtmlSimple: "<strong>Closeout</strong>. Be ready for any outdoor adventure in low elevations and high-alpine environments alike with the hybrid design of The North Face's Alpine Guide four-season tent. It is made from durable, waterproof nylon ripstop with an advanced DAC Featherlite NSL pole system and an easy to pitch design."
+        DescriptionHtmlSimple: "<strong>Closeout</strong>. Be ready for any outdoor adventure in The North Face's Alpine Guide tent."
       },
       {
         Id: "344YJ",
@@ -55,9 +57,9 @@ export default class ProductData {
         ListPrice: 69.99,
         FinalPrice: 69.99,
         SuggestedRetailPrice: 89.99,
-        Image: "/wdd330/images/tents/cedar-ridge-rimrock-tent-2-person-3-season-in-rust-clay~p~344yj_01~320.jpg",
+        Image: "./images/tents/cedar-ridge-rimrock-tent-2-person-3-season-in-rust-clay~p~344yj_01~320.jpg",
         Colors: [{ ColorName: "Rust/Clay" }],
-        DescriptionHtmlSimple: "<strong>Closeouts</strong>. Lightweight and ready for adventure, this Cedar Ridge Rimrock tent boasts a weather-ready design that includes a tub-style floor and factory-sealed rain fly."
+        DescriptionHtmlSimple: "<strong>Closeouts</strong>. Lightweight and ready for adventure, this Cedar Ridge Rimrock tent boasts a weather-ready design."
       }
     ];
   }

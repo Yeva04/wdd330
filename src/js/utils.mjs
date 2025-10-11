@@ -2,8 +2,6 @@
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
@@ -25,17 +23,10 @@ export function setClick(selector, callback) {
 }
 
 // get URL parameter
-
 export function getParam(param) {
-  const fullUrl = window.location.href;
-  const basePath = '/wdd330/';
-  const queryStart = fullUrl.indexOf('?');
-  if (queryStart !== -1) {
-    const queryString = fullUrl.substring(queryStart);
-    const urlParams = new URLSearchParams(queryString);
-    return urlParams.get(param) || null;
-  }
-  return null;
+  const url = new URL(window.location.href);
+  const urlParams = new URLSearchParams(url.search);
+  return urlParams.get(param) || null;
 }
 
 // render a list of items using a template function
