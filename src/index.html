@@ -46,6 +46,45 @@
       <h2>Top Products</h2>
       <ul class="product-list"></ul>
     </section>
+
+    <div class="newsletter-section">
+        <h2>Stay Updated with Outdoor Adventures!</h2>
+        <p>Get exclusive deals, new gear updates, and camping tips delivered to your inbox.</p>
+        <form id="newsletter-form" class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Enter your email address" required />
+            <button type="submit">Subscribe</button>
+        </form>
+        <div id="newsletter-success" class="newsletter-success">
+            <p>🎉 Thanks for subscribing! Check your inbox for your welcome email.</p>
+        </div>
+    </form>
+    <script>
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterSuccess = document.getElementById('newsletter-success');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value.trim();
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+             // Simple client-side validation
+            console.log('Newsletter subscription attempt:', email);
+
+            // Hide form and show success message
+            newsletterForm.style.display = 'none';
+            newsletterSuccess.classList.add('show');
+            
+            // For demo purposes, just show success
+            setTimeout(() => {
+                newsletterForm.style.display = 'flex';
+                newsletterSuccess.classList.remove('show');
+                document.getElementById('newsletter-email').value = '';
+            }, 5000);
+        });
+</script>
   </main>
   <footer>&copy;2025 ⛺ SleepOutside ⛺ WDD 330 ⛺ BYU-Idaho for BYU-Pathway Worldwide Online</footer>
 </body>

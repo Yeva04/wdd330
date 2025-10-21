@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build && node scripts/postbuild.js",
+    "build": "vite build && copy redirect.html dist\\index.html",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint *.js src/**/*.js",
